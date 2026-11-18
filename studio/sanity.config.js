@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'Template Agency',
 
-  projectId: 'gwvi03zf',
+  projectId: 'cwxjgr0e',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
