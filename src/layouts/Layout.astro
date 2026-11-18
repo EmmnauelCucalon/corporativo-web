@@ -17,21 +17,21 @@ const { title = siteContent.title, description = siteContent.description } = Ast
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
-		<meta name="theme-color" content="#FAFAF9" />
+		<meta name="theme-color" content="#F8FAFC" />
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="es_NI" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/images/cucalon-icon.png" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700&display=swap"
 			rel="stylesheet"
 		/>
 		<title>{title}</title>
 	</head>
-	<body class="bg-stone-50 font-body text-zinc-900 antialiased">
+	<body class="bg-slate-50 font-body text-slate-900 antialiased">
 		<slot />
 	</body>
 </html>

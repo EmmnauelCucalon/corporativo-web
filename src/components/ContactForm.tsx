@@ -76,7 +76,7 @@ export default function ContactForm({ endpoint = '', copy }: ContactFormProps) {
 				<Button type="submit" disabled={isSubmitting}>
 					{isSubmitting ? copy.submittingLabel : copy.submitLabel} <span aria-hidden="true">↗</span>
 				</Button>
-				<p className="text-xs leading-5 text-zinc-600">{copy.followUpNote}</p>
+				<p className="text-xs leading-5 text-slate-600">{copy.followUpNote}</p>
 			</div>
 			{status && (
 				<p className={status.kind === 'success' ? 'form-status-success' : 'form-status-error'} role={status.kind === 'error' ? 'alert' : 'status'} aria-live="polite">

@@ -16,6 +16,7 @@ export interface PricingPackage {
 export interface PortfolioProject {
 	name: string;
 	url: string;
+	industry: string;
 	description: string;
 }
 
@@ -44,12 +45,12 @@ export interface ContactFormCopy {
 }
 
 export const siteContent = {
-	name: 'Cucalón Studio',
-	title: 'Cucalón Studio | Diseño y desarrollo web en Managua, Nicaragua',
+	name: 'Cucalon Studio',
+	title: 'Cucalon Studio | Diseño y desarrollo web en Managua, Nicaragua',
 	description:
 		'Diseño y desarrollo de sitios web rápidos y profesionales para MIPYMES y empresas en Managua, Nicaragua.',
 	hero: {
-		eyebrow: 'DISEÑO Y DESARROLLO WEB · MANAGUA, NICARAGUA',
+		eyebrow: 'DISEÑO Y DESARROLLO WEB',
 		title: 'Una web profesional para que tu negocio proyecte solidez y venda más.',
 		description:
 			'Creamos sitios web rápidos, claros y adaptados a celulares para MIPYMES y empresas que quieren crecer sin complicaciones técnicas.',
@@ -58,12 +59,12 @@ export const siteContent = {
 		supportingNote: 'Una presencia digital profesional, sin vueltas ni complicaciones técnicas.',
 	},
 	pricing: {
-		eyebrow: 'TARIFAS DE APERTURA',
+		eyebrow: 'PAQUETES',
 		title: 'Una solución clara para cada etapa de tu negocio.',
 		description: 'Paquetes profesionales, precios transparentes y un proceso directo.',
 		recommendedLabel: 'Recomendado',
 		includesLabel: 'Incluye:',
-		deliveryLabel: 'Entrega:',
+		deliveryLabel: 'ENTREGA:',
 		quoteAction: 'Cotizar este paquete',
 		note: 'Tarifas especiales de apertura. Pago 50% al iniciar y 50% al entregar. El costo anual del dominio (.com) corre por cuenta del negocio.',
 	},
@@ -76,7 +77,7 @@ export const siteContent = {
 		futureCaseAction: 'Hablemos de tu negocio',
 	},
 	process: {
-		eyebrow: 'UN PROCESO SENCILLO',
+		eyebrow: 'PROCESO',
 		title: 'De la idea al lanzamiento, paso a paso.',
 		description: 'Siempre sabrás qué sigue y qué necesitamos de tu parte.',
 	},
@@ -125,6 +126,7 @@ export const contactInfo = {
 	whatsappUrl:
 		'https://wa.me/50578935283?text=Hola%20Emmanuel%2C%20me%20interesa%20cotizar%20un%20proyecto%20web%20para%20mi%20negocio.',
 	location: 'Managua, Nicaragua',
+	shortLocation: 'MANAGUA, NI',
 } as const;
 
 function packageWhatsappUrl(packageName: string) {
@@ -137,7 +139,7 @@ export const pricingPackages: PricingPackage[] = [
 		name: 'Presencia Express (One-Page)',
 		price: '$80 – $120 USD',
 		payment: 'pago único',
-		delivery: '3 a 4 días hábiles',
+		delivery: '3-4 DÍAS HÁBILES',
 		includes: [
 			'1 página estructurada (Inicio, Servicios, Ubicación, WhatsApp)',
 			'Diseño adaptado a celulares',
@@ -150,7 +152,7 @@ export const pricingPackages: PricingPackage[] = [
 		name: 'Catálogo Inicial',
 		price: '$160 – $220 USD',
 		payment: 'pago único',
-		delivery: '5 a 7 días hábiles',
+		delivery: '5-7 DÍAS HÁBILES',
 		includes: [
 			'Presentación del negocio',
 			'Catálogo de hasta 15 productos',
@@ -173,8 +175,9 @@ export const projects: PortfolioProject[] = [
 	{
 		name: 'Laboratorio Mendieta',
 		url: 'https://laboratoriomendieta.com',
+		industry: 'Laboratorio fabricante de productos químicos e higiénicos',
 		description:
-			'Sitio corporativo y catálogo digital de productos químicos e higiénicos, optimizado para carga rápida y navegación clara.',
+			'Catálogo de productos de limpieza, desinfección e higiene en un sitio corporativo optimizado para carga rápida y navegación clara.',
 	},
 ];
 

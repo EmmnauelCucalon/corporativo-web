@@ -1,6 +1,6 @@
-# Cucalón Studio
+# Cucalon Studio
 
-Sitio web de Cucalón Studio, estudio de diseño y desarrollo web para MIPYMES y empresas en Managua, Nicaragua.
+Sitio web de Cucalon Studio, estudio de diseño y desarrollo web para MIPYMES y empresas en Managua, Nicaragua.
 
 ## Desarrollo
 

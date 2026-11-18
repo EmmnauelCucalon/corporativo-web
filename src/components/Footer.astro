@@ -2,19 +2,19 @@
 import { navigationLinks, siteContent } from '../data/mockData';
 ---
 
-<footer class="border-t border-zinc-200 py-7">
+<footer class="border-t border-slate-200 py-7">
 	<div class="page-container flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
 		<div>
-			<a class="font-display text-base font-bold tracking-tight text-zinc-900" href="#inicio" aria-label={`${siteContent.name}, inicio`}>
-				{siteContent.name}<span class="text-petrol">.</span>
+			<a class="inline-flex items-center" href="#inicio" aria-label={`${siteContent.name}, inicio`}>
+				<img class="h-8 w-auto" src="/images/cucalon-logo.png" alt="" />
 			</a>
-			<p class="mt-1 text-xs text-zinc-600">{siteContent.footer.tagline}</p>
+			<p class="mt-1 text-xs text-slate-600">{siteContent.footer.tagline}</p>
 		</div>
-		<nav class="flex flex-wrap gap-x-5 gap-y-2 text-xs text-zinc-600" aria-label="Navegación del pie de página">
+		<nav class="flex flex-wrap gap-x-5 gap-y-2 text-xs text-slate-600" aria-label="Navegación del pie de página">
 			{navigationLinks.map((link) => (
-				<a class="transition-colors hover:text-petrol" href={link.href}>{link.label}</a>
+				<a class="transition-colors hover:text-blue-600" href={link.href}>{link.label}</a>
 			))}
 		</nav>
-		<p class="text-xs text-zinc-600">© {new Date().getFullYear()} {siteContent.name}. {siteContent.footer.copyright}</p>
+		<p class="text-xs text-slate-600">© {new Date().getFullYear()} {siteContent.name}. {siteContent.footer.copyright}</p>
 	</div>
 </footer>
