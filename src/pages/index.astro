@@ -1,4 +1,10 @@
 ---
+import { sanityClient } from 'sanity:client';
+import '../styles/global.css';
+
+const ajustes = await sanityClient.fetch(
+	'*[_type == "ajustesGlobales"][0]{nombreSitio, "logoUrl": logoPrincipal.asset->url}'
+);
 ---
 
 <html lang="en">
@@ -12,5 +18,10 @@
 	</head>
 	<body>
 		<h1>Astro</h1>
+		<img
+			src={ajustes?.logoUrl}
+			alt={ajustes?.nombreSitio ?? 'Logo del sitio'}
+			class="mx-auto mt-6 block h-24 w-auto object-contain"
+		/>
 	</body>
 </html>
