@@ -1,27 +1,61 @@
 ---
-import { sanityClient } from 'sanity:client';
-import '../styles/global.css';
-
-const ajustes = await sanityClient.fetch(
-	'*[_type == "ajustesGlobales"][0]{nombreSitio, "logoUrl": logoPrincipal.asset->url}'
-);
+import { contactInfo } from '../data/mockData';
+import ContactForm from '../components/ContactForm';
+import Hero from '../components/Hero.astro';
+import Navbar from '../components/Navbar.astro';
+import Portfolio from '../components/Portfolio.astro';
+import Process from '../components/Process.astro';
+import Services from '../components/Services.astro';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-		<img
-			src={ajustes?.logoUrl}
-			alt={ajustes?.nombreSitio ?? 'Logo del sitio'}
-			class="mx-auto mt-6 block h-24 w-auto object-contain"
-		/>
-	</body>
-</html>
+<Layout>
+	<Navbar />
+	<main>
+		<Hero />
+		<Services />
+		<Portfolio />
+		<Process />
+		<section id="contacto" class="section-space scroll-mt-20 bg-white">
+			<div class="page-container grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+				<div class="max-w-lg">
+					<p class="eyebrow">EL SIGUIENTE PASO</p>
+					<h2 class="section-title mt-4">Hablemos de lo que quieres construir.</h2>
+					<p class="mt-5 text-base leading-7 text-muted">
+						Cuéntanos sobre tu negocio y tus objetivos. Te responderemos con ideas concretas para empezar.
+					</p>
+					<a class="mt-7 inline-flex items-center gap-3 text-sm font-medium text-ink transition-colors hover:text-accent" href={contactInfo.phoneHref}>
+						<span class="grid size-10 place-items-center rounded-full bg-paper text-accent" aria-hidden="true">☎</span>
+						<span>
+							<span class="block text-xs font-normal text-muted">Llámanos directamente</span>
+							<span class="mt-0.5 block">{contactInfo.phone}</span>
+						</span>
+					</a>
+					<a
+						class="button button-dark mt-6 w-full sm:w-auto"
+						href={contactInfo.whatsappUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Cotizar un proyecto web por WhatsApp"
+					>
+						Cotizar proyecto por WhatsApp <span aria-hidden="true">↗</span>
+					</a>
+					<div class="mt-9 border-t border-ink/10 pt-6">
+						<p class="text-sm font-medium text-ink">Una conversación, sin compromiso.</p>
+						<p class="mt-2 text-sm leading-6 text-muted">Revisamos tu contexto y te orientamos hacia una solución que tenga sentido para tu equipo.</p>
+					</div>
+				</div>
+				<div class="rounded-3xl border border-ink/10 bg-paper p-6 sm:p-9">
+					<ContactForm client:visible endpoint={import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? ''} />
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer class="border-t border-ink/10 py-7">
+		<div class="page-container flex flex-col justify-between gap-3 text-sm text-muted sm:flex-row sm:items-center">
+			<a class="font-semibold tracking-tight text-ink" href="#inicio">nexo<span class="text-muted">.</span></a>
+			<p>Experiencias digitales pensadas para crecer.</p>
+			<p>© {new Date().getFullYear()} Nexo Digital</p>
+		</div>
+	</footer>
+</Layout>
