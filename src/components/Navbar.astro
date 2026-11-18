@@ -1,29 +1,30 @@
 ---
-const links = [
-	{ label: 'Servicios', href: '#servicios' },
-	{ label: 'Proyectos', href: '#proyectos' },
-	{ label: 'Proceso', href: '#proceso' },
-];
+import { contactInfo, navigationLinks, siteContent } from '../data/mockData';
 ---
 
-<header class="sticky top-0 z-50 border-b border-ink/8 bg-paper/90 backdrop-blur-md">
-	<nav class="page-container flex h-[76px] items-center justify-between" aria-label="Navegación principal">
-		<a class="flex items-center gap-2.5 font-semibold tracking-tight text-ink" href="#inicio" aria-label="Nexo Digital, inicio">
-			<span class="grid size-9 place-items-center rounded-xl bg-ink text-sm font-bold text-white" aria-hidden="true">N</span>
-			<span class="text-[17px]">nexo<span class="text-muted">.</span></span>
+<header class="fixed inset-x-0 top-0 z-50 border-b border-zinc-200 bg-stone-50/95 backdrop-blur-sm">
+	<nav class="page-container flex min-h-[108px] flex-wrap content-center items-center justify-between gap-x-6 gap-y-3 md:h-[72px] md:min-h-0 md:flex-nowrap" aria-label="Navegación principal">
+		<a class="font-display text-lg font-bold tracking-tight text-zinc-900" href="#inicio" aria-label={`${siteContent.name}, inicio`}>
+			{siteContent.name}<span class="text-petrol">.</span>
 		</a>
 
-		<div class="hidden items-center gap-9 text-sm text-muted md:flex">
-			{links.map((link) => (
-				<a class="transition-colors hover:text-ink" href={link.href}>{link.label}</a>
+		<div class="order-3 flex w-full items-center justify-between gap-3 whitespace-nowrap text-xs text-zinc-600 md:order-none md:w-auto md:gap-7 md:text-sm">
+			{navigationLinks.map((link) => (
+				<a class="transition-colors hover:text-petrol" href={link.href}>{link.label}</a>
 			))}
 		</div>
 
 		<a
-			class="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent"
-			href="#contacto"
+			class="button button-primary shrink-0"
+			href={contactInfo.whatsappUrl}
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label={siteContent.contact.whatsappAction}
 		>
-			Hablemos <span aria-hidden="true">↗</span>
+			<span class="hidden sm:inline">{siteContent.contact.whatsappAction}</span>
+			<span class="sm:hidden">{siteContent.contact.mobileWhatsappAction}</span>
+			<span aria-hidden="true">↗</span>
 		</a>
 	</nav>
 </header>
+<div class="h-[109px] md:h-[73px]" aria-hidden="true"></div>

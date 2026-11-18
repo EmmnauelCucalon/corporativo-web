@@ -1,13 +1,15 @@
 import { useState, type FormEvent } from 'react';
+import type { ContactFormCopy } from '../data/mockData';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 
 interface ContactFormProps {
 	endpoint?: string;
+	copy: ContactFormCopy;
 }
 
-export default function ContactForm({ endpoint = '' }: ContactFormProps) {
+export default function ContactForm({ endpoint = '', copy }: ContactFormProps) {
 	const [status, setStatus] = useState<{ kind: 'success' | 'error'; message: string } | null>(null);
 	const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -19,7 +21,7 @@ export default function ContactForm({ endpoint = '' }: ContactFormProps) {
 		if (!endpoint) {
 			setStatus({
 				kind: 'error',
-				message: 'El formulario aún no está conectado. Configura PUBLIC_CONTACT_ENDPOINT para habilitar el envío.',
+				message: copy.endpointMissing,
 			});
 			return;
 		}
@@ -39,11 +41,11 @@ export default function ContactForm({ endpoint = '' }: ContactFormProps) {
 			}
 
 			form.reset();
-			setStatus({ kind: 'success', message: 'Gracias por escribirnos. Nos pondremos en contacto pronto.' });
+			setStatus({ kind: 'success', message: copy.successMessage });
 		} catch (error) {
 			setStatus({
 				kind: 'error',
-				message: error instanceof Error ? `No se pudo enviar tu mensaje. ${error.message}` : 'No se pudo enviar tu mensaje.',
+				message: error instanceof Error ? `${copy.errorPrefix} ${error.message}` : copy.genericError,
 			});
 		} finally {
 			setIsSubmitting(false);
@@ -54,27 +56,27 @@ export default function ContactForm({ endpoint = '' }: ContactFormProps) {
 		<form className="space-y-5" onSubmit={handleSubmit}>
 			<div className="grid gap-5 sm:grid-cols-2">
 				<div className="space-y-2">
-					<label className="form-label" htmlFor="contact-name">Nombre</label>
-					<Input id="contact-name" name="name" autoComplete="name" placeholder="Tu nombre" required />
+					<label className="form-label" htmlFor="contact-name">{copy.nameLabel}</label>
+					<Input id="contact-name" name="name" autoComplete="name" placeholder={copy.namePlaceholder} required />
 				</div>
 				<div className="space-y-2">
-					<label className="form-label" htmlFor="contact-email">Correo de trabajo</label>
-					<Input id="contact-email" name="email" type="email" autoComplete="email" placeholder="nombre@empresa.com" required />
+					<label className="form-label" htmlFor="contact-email">{copy.emailLabel}</label>
+					<Input id="contact-email" name="email" type="email" autoComplete="email" placeholder={copy.emailPlaceholder} required />
 				</div>
 			</div>
 			<div className="space-y-2">
-				<label className="form-label" htmlFor="contact-company">Empresa <span className="font-normal text-muted">(opcional)</span></label>
-				<Input id="contact-company" name="company" autoComplete="organization" placeholder="Nombre de tu empresa" />
+				<label className="form-label" htmlFor="contact-company">{copy.businessLabel}</label>
+				<Input id="contact-company" name="company" autoComplete="organization" placeholder={copy.businessPlaceholder} />
 			</div>
 			<div className="space-y-2">
-				<label className="form-label" htmlFor="contact-message">¿Cómo podemos ayudarte?</label>
-				<Textarea id="contact-message" name="message" placeholder="Cuéntanos brevemente sobre tu proyecto..." required rows={4} />
+				<label className="form-label" htmlFor="contact-message">{copy.messageLabel}</label>
+				<Textarea id="contact-message" name="message" placeholder={copy.messagePlaceholder} required rows={4} />
 			</div>
 			<div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
 				<Button type="submit" disabled={isSubmitting}>
-					{isSubmitting ? 'Enviando...' : 'Enviar mensaje'} <span aria-hidden="true">↗</span>
+					{isSubmitting ? copy.submittingLabel : copy.submitLabel} <span aria-hidden="true">↗</span>
 				</Button>
-				<p className="text-xs leading-5 text-muted">Al enviar, aceptas que te contactemos sobre tu consulta.</p>
+				<p className="text-xs leading-5 text-zinc-600">{copy.followUpNote}</p>
 			</div>
 			{status && (
 				<p className={status.kind === 'success' ? 'form-status-success' : 'form-status-error'} role={status.kind === 'error' ? 'alert' : 'status'} aria-live="polite">
