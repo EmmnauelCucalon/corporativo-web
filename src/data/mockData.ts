@@ -115,7 +115,6 @@ export const siteContent = {
 
 export const navigationLinks: NavigationLink[] = [
 	{ label: 'Paquetes', href: '#paquetes' },
-	{ label: 'Portafolio', href: '#portafolio' },
 	{ label: 'Proceso', href: '#proceso' },
 	{ label: 'Contacto', href: '#contacto' },
 ];
@@ -171,15 +170,7 @@ export const pricingPackages: PricingPackage[] = [
 	},
 ];
 
-export const projects: PortfolioProject[] = [
-	{
-		name: 'Laboratorio Mendieta',
-		url: 'https://laboratoriomendieta.com',
-		industry: 'Laboratorio fabricante de productos químicos e higiénicos',
-		description:
-			'Catálogo de productos de limpieza, desinfección e higiene en un sitio corporativo optimizado para carga rápida y navegación clara.',
-	},
-];
+export const projects: PortfolioProject[] = [];
 
 export const processSteps: ProcessStep[] = [
 	{
