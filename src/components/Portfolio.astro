@@ -11,7 +11,7 @@ import { projects, siteContent } from '../data/mockData';
 
 		<div class="mt-10 grid gap-4 md:grid-cols-[1.35fr_0.65fr]">
 			{projects.map((project) => (
-				<article class="flex min-h-[300px] flex-col justify-between border border-slate-200 bg-slate-50 p-6 transition-colors hover:border-blue-600/50 sm:p-9">
+				<article class="flex min-h-75 flex-col justify-between border border-slate-200 bg-slate-50 p-6 transition-colors hover:border-blue-600/50 sm:p-9">
 					<div>
 						<p class="eyebrow font-mono text-xs uppercase tracking-wider text-blue-600">{siteContent.portfolio.featuredLabel}</p>
 						<p class="mt-6 font-mono text-xs uppercase tracking-wider text-slate-600">{project.industry}</p>
@@ -28,7 +28,7 @@ import { projects, siteContent } from '../data/mockData';
 					</a>
 				</article>
 			))}
-			<aside class="flex min-h-[220px] flex-col justify-between border border-slate-200 p-6 transition-colors hover:border-blue-600/50 sm:p-9">
+			<aside class="flex min-h-55 flex-col justify-between border border-slate-200 p-6 transition-colors hover:border-blue-600/50 sm:p-9">
 				<div>
 					<p class="eyebrow font-mono text-xs uppercase tracking-wider">{siteContent.name.toUpperCase()}</p>
 					<p class="mt-5 max-w-xs font-display text-2xl font-semibold leading-snug tracking-tight text-slate-900">

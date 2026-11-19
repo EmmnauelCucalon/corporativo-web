@@ -11,7 +11,8 @@ export default defineConfig({
     react(),
     sanity({
       projectId: 'cwxjgr0e',
-      dataset: 'production'
+      dataset: 'production',
+      useCdn: false
     })
   ],
   vite: {
