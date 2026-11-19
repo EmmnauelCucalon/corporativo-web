@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { siteContent } from '../data/mockData';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
 	title?: string;
@@ -30,6 +31,7 @@ const { title = siteContent.title, description = siteContent.description } = Ast
 			rel="stylesheet"
 		/>
 		<title>{title}</title>
+		<Analytics />
 	</head>
 	<body class="bg-slate-50 font-body text-slate-900 antialiased">
 		<slot />
